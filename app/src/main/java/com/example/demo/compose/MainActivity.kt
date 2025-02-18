@@ -11,20 +11,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.demo.compose.ui.theme.DemoComposeTheme
+import com.example.demo.compose.ui.theme.MainAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            DemoComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            MainAppTheme {
+                val appState = rememberMainAppState()
+                MainApp(appState)
             }
         }
     }
@@ -41,7 +37,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    DemoComposeTheme {
+    MainAppTheme {
         Greeting("Android")
     }
+}
+
+@Preview()
+@Composable
+fun MainPreview() {
+    val appState = rememberMainAppState()
+    MainApp(appState)
 }
