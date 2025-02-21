@@ -75,6 +75,8 @@ dependencies {
 
     implementation(libs.koin.android)
     implementation(libs.koin.annotations)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.constraintlayout.compose)
     ksp(libs.koin.ksp)
 
     debugImplementation(libs.androidx.ui.tooling)
